@@ -11,13 +11,13 @@ if len(sys.argv) != 2:
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect to the Server
-connect = s.connect(('10.10.115.36',25))  # CHANGE THIS   
+connect = s.connect(('10.10.10.10',25))  # CHANGE THIS   
 
 # Receive the banner
 banner = s.recv(1024)
 print (banner)
 
-# VRFY a user
+# verify a user
 username = bytes(sys.argv[1], "UTF-8")
 s.send(b'VRFY ' + username + b'\r\n')
 result = s.recv(1024)
